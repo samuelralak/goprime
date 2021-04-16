@@ -2,29 +2,22 @@
 
 Given a number input, Go Prime will return the highest prime number lower than the input
 
-## Prerequisites
-
-- Install Golang (Go Prime uses Go version 1.15)
-- Create your Golang workspace 
-  ```shell
-  $ mkdir -p $HOME/go/{bin,src}
-  ```
-
 ## Installation
 
-Fetch GoPrime by running the following command:
+Clone this repository
 
 ```shell
-$ go get github.com/samuelralak/goprime
+$ git clone git@github.com:samuelralak/goprime.git
 ```
 
-Switch to GoPrime directory and start application
+Switch to GoPrime directory then build and start server
 
 ```shell
-$ cd $HOME/go/src/github.com/samuelralak/goprime && go run .
+$ cd goprime 
+$ ./build && ./start
 ```
 
-The server should be available at `localhost:8080`
+The above command will run the GoPrime image interactively by default. The server should be available at `localhost:8080`
 
 ## Usage
 
@@ -54,4 +47,11 @@ $ curl --location --request GET 'localhost:8080/55'
 
 # output
 53
+```
+
+## Go Live
+
+A Live version of the service can be found at:
+```shell
+https://sam-goprime.herokuapp.com
 ```
