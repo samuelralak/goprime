@@ -1,15 +1,16 @@
-package main
+package tests
 
 import (
+	"github.com/samuelralak/goprime/routes"
 	"github.com/stretchr/testify/assert"
 	"net/http"
 	"net/http/httptest"
 	"testing"
 )
 
-func TestRootRoute(t *testing.T) {
-	router := setupRouter()
+var router = routes.SetupRouter()
 
+func TestRootRoute(t *testing.T) {
 	respRecorder := httptest.NewRecorder()
 	request, _ := http.NewRequest("GET", "/", nil)
 	router.ServeHTTP(respRecorder, request)
@@ -19,8 +20,6 @@ func TestRootRoute(t *testing.T) {
 }
 
 func TestNumberInputRouteWhenInputIsValidNumber(t *testing.T) {
-	router := setupRouter()
-
 	respRecorder := httptest.NewRecorder()
 	request, _ := http.NewRequest("GET", "/55", nil)
 	router.ServeHTTP(respRecorder, request)
@@ -30,8 +29,6 @@ func TestNumberInputRouteWhenInputIsValidNumber(t *testing.T) {
 }
 
 func TestNumberInputRouteWhenInputIsInvalidNumber(t *testing.T) {
-	router := setupRouter()
-
 	respRecorder := httptest.NewRecorder()
 	request, _ := http.NewRequest("GET", "/invalid", nil)
 	router.ServeHTTP(respRecorder, request)
