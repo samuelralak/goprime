@@ -2,6 +2,20 @@
 
 Given a number input, Go Prime will return the highest prime number lower than the input
 
+## Design Decisions & Trade-offs
+
+GoPrime follows a REST style architecture powered by the [Gin Web Framework](https://gin-gonic.com/). 
+
+The choice in web framework was inspired by a need for a simple yet fully featured API without compromising on speed and size.
+
+Building GoPrime as a REST API service reduces its UI dependence, allowing it to provide data over an API instead of being coupled to a particular web framework.
+
+GoPrime follows a very minimalistic approach as can be seen in the choice of framework, this makes it un-opinionated thus having the freedom to follow whatever design pattern. This works pretty well for GoPrime's current functions but will not work if for some it evolves into larger enterprise service.   
+
+## Prerequisites
+
+- Ensure that you have docker installed
+
 ## Installation
 
 Clone this repository
@@ -13,8 +27,7 @@ $ git clone git@github.com:samuelralak/goprime.git
 Switch to GoPrime directory then build and start server
 
 ```shell
-$ cd goprime 
-$ ./build && ./start
+$ cd goprime && make
 ```
 
 The above command will run the GoPrime image interactively by default. The server should be available at `localhost:8080`
